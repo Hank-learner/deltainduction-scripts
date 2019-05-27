@@ -1,4 +1,4 @@
-
+#! /bin/bash
 
 sudo useradd MasterH -m -s /bin/bash
 sudo passwd MasterH
