@@ -188,8 +188,7 @@ chmod u+x dailytask.sh
            cd /home/Hertz/task$i
            for((j=1;j<=20;j++))
            do
-             ls | sort -R | head -5 | while read file 
-             do
+             ls | sort -R | tail -5 | while read file; do
                cp $file /home/Hertz${j}/task${j}
              done
             done
@@ -200,8 +199,7 @@ chmod u+x dailytask.sh
            cd /home/Holland/task$i
            for((j=1;j<=20;j++))
            do
-              ls | sort -R | head -5 | while read file 
-              do
+              ls | sort -R | tail -5 | while read file; do
                   cp $file /home/Holland${j}/task${j}
               done
            done
@@ -212,8 +210,7 @@ chmod u+x dailytask.sh
             cd /home/Heisenberg/task$i
             for((j=1;j<=20;j++))
             do
-               ls | sort -R | head -5 | while read file 
-               do
+               ls | sort -R | tail -5 | while read file; do
                cp $file /home/Heisenberg${j}/task${j}
                done
             done
