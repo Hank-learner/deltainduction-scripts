@@ -104,7 +104,7 @@ cd ..
 done
 
 cd Hertz/
-for((i=1;i<=5,i++))
+for((i=1;i<=5;i++))
 do
 mkdir task$i
 cd task$i
@@ -118,7 +118,7 @@ done
 cd..
 
 cd Holland/
-for((i=1;i<=5,i++))
+for((i=1;i<=5;i++))
 do
 mkdir task$i
 cd task$i
@@ -132,7 +132,7 @@ done
 cd..
 
 cd Heisenberg/
-for((i=1;i<=5,i++))
+for((i=1;i<=5;i++))
 do
 mkdir task$i
 cd task$i
@@ -145,30 +145,30 @@ cd ..
 done
 cd..
 
-for((i=1,i<=20;i++))
+for((i=1;i<=20;i++))
 do
 cd Hertz$i/
-for((j=1,j<=5;j++))
+for((j=1;j<=5;j++))
 do
 mkdir task$j
 done
 cd ..
 done
 
-for((i=1,i<=20;i++))
+for((i=1;i<=20;i++))
 do
 cd Holland$i/
-for((j=1,j<=5;j++))
+for((j=1;j<=5;j++))
 do
 mkdir task$j
 done
 cd ..
 done
 
-for((i=1,i<=20;i++))
+for((i=1;i<=20;i++))
 do
 cd Heisenberg$i/
-for((j=1,j<=5;j++))
+for((j=1;j<=5;j++))
 do
 mkdir task$j
 done
@@ -183,34 +183,40 @@ gedit dailytask.sh
 chmod u+x dailytask.sh
 #inside dailytask.sh
       #! /bin/bash
-      for((i=1;i<=5,i++))
+      for((i=1;i<=5;i++))
       do
-      cd /home/Hertz/task$i
-      for((j=1;j<=20;j++))
-      ls | sort -R | head -5 | while read file do
-      cp $file /home/Hertz${j}/task${j}
-      done
-      done
+           cd /home/Hertz/task$i
+           for((j=1;j<=20;j++))
+           do
+             ls | sort -R | head -5 | while read file 
+             do
+               cp $file /home/Hertz${j}/task${j}
+             done
+            done
       done
       
-      for((i=1;i<=5,i++))
+      for((i=1;i<=5;i++))
       do
-      cd /home/Holland/task$i
-      for((j=1;j<=20;j++))
-      ls | sort -R | head -5 | while read file do
-      cp $file /home/Holland${j}/task${j}
-      done
-      done
+           cd /home/Holland/task$i
+           for((j=1;j<=20;j++))
+           do
+              ls | sort -R | head -5 | while read file 
+              do
+                  cp $file /home/Holland${j}/task${j}
+              done
+           done
       done
       
-      for((i=1;i<=5,i++))
+      for((i=1;i<=5;i++))
       do
-      cd /home/Heisenberg/task$i
-      for((j=1;j<=20;j++))
-      ls | sort -R | head -5 | while read file do
-      cp $file /home/Heisenberg${j}/task${j}
-      done
-      done
+            cd /home/Heisenberg/task$i
+            for((j=1;j<=20;j++))
+            do
+               ls | sort -R | head -5 | while read file 
+               do
+               cp $file /home/Heisenberg${j}/task${j}
+               done
+            done
       done
       
       
