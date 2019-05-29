@@ -190,7 +190,8 @@ chmod u+x dailytask.sh
            do
              ls | sort -R | tail -5 | while read file; do
                cp $file /home/Hertz${j}/task${j}
-             done
+               chmod 444 /home/Hertz${j}/task${j}/${file}
+               done
             done
       done
       
@@ -201,6 +202,7 @@ chmod u+x dailytask.sh
            do
               ls | sort -R | tail -5 | while read file; do
                   cp $file /home/Holland${j}/task${j}
+                  chmod 444 /home/Hertz${j}/task${j}/${file}
               done
            done
       done
@@ -212,6 +214,7 @@ chmod u+x dailytask.sh
             do
                ls | sort -R | tail -5 | while read file; do
                cp $file /home/Heisenberg${j}/task${j}
+               chmod 444 /home/Hertz${j}/task${j}/${file}
                done
             done
       done
