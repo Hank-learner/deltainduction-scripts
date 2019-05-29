@@ -229,6 +229,86 @@ crontab -e
 
 
 
+#hacker mode
+
+cd /home/MasterH
+touch success failure
+
+cd /home/Heisenberg
+touch success failure
+
+cd /home/Hertz
+touch success failure
+
+cd /home/Holland
+touch success failure
+
+
+for((i=1;i<=20;i++))
+do
+	cd /home/Hertz${i}
+	touch success failure
+
+	cd /home/Holland${i}
+	touch success failure
+
+	cd /home/Heisenberg${i}
+	touch success failure
+done
+
+
+cd /home/MasterH
+cat server_logs.txt | grep ".*MasterH ->" >> success 
+
+cd /home/Hertz
+cat server_logs.txt | grep ".*Hertz -> Hertz.*" >> success
+cat server_logs.txt | grep "Hertz ->" | grep -v "Hertz -> Hertz" >> failure
+
+cd /home/Holland
+cat server_logs.txt | grep ".*Holland -> Holland.*" >> success
+cat server_logs.txt | grep "Holland ->" | grep -v "Holland -> Holland" >> failure
+
+cd /home/Heisenberg
+cat server_logs.txt | grep ".*Heisenberg -> Heisenberg.*" >> success
+cat server_logs.txt | grep "Heisenberg ->" | grep -v "Heisenberg -> Heisenberg" >> failure
+
+for((i=1;i<=20;i++))
+do
+	cd /home/Hertz${i}
+    cat server_logs.txt | grep 'Hertz-Intern${i} -> Hertz-Intern${i}' >> success
+    cat server_logs.txt | grep 'Hertz-Intern${i} ->' | grep -v 'Hertz-Intern${i} -> Hertz-Intern${i}' >> failure
+
+    cd /home/Holland${i}
+    cat server_logs.txt | grep 'Holland-Intern${i} -> Holland-Intern${i}' >> success
+    cat server_logs.txt | grep 'Holland-Intern${i} ->' | grep -v 'Holland-Intern${i} -> Holland-Intern${i}' >> failure
+
+    cd /home/Heisenberg${i}
+    cat server_logs.txt | grep 'Heisenberg-Intern${i} -> Heisenberg-Intern${i}' >> success
+    cat server_logs.txt | grep 'Heisenberg-Intern${i} ->' | grep -v 'Heisenberg-Intern${i} -> Heisenberg-Intern${i}' >> failure
+done
+
+
+#for displaying in table
+for((i=1;i<=20;i++))
+do
+	cat server_logs.txt | grep 'Hertz-Intern${i}' | wc -l
+    cat server_logs.txt | grep 'Hertz-Intern${i}' | sed 's/\ /:/g' | cut -d: -f 1,2,3,4,5
+done
+
+for((i=1;i<=20;i++))
+do
+	cat server_logs.txt | grep 'Hertz-Intern${i}' | wc -l
+    cat server_logs.txt | grep 'Hertz-Intern${i}' | sed 's/\ /:/g' | cut -d: -f 1,2,3,4,5
+done
+
+for((i=1;i<=20;i++))
+do
+	cat server_logs.txt | grep 'Hertz-Intern${i}' | wc -l
+    cat server_logs.txt | grep 'Hertz-Intern${i}' | sed 's/\ /:/g' | cut -d: -f 1,2,3,4,5
+done
+
+
+
 
 
 
