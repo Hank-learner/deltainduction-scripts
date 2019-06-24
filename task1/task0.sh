@@ -3,7 +3,7 @@
 sudo useradd MasterH -m -s /bin/bash
 sudo passwd MasterH
 
-arr=(Hertz Holland Heisenberg)
+arr=("Hertz" "Holland" "Heisenberg")
 for((j=0;j<3;j++))
 do
    sudo useradd ${arr[$j]} -m -s /bin/bash
@@ -56,7 +56,7 @@ done
 
 
 sudo su
-arr=(Hertz Holland Heisenberg)
+arr=("Hertz" "Holland" "Heisenberg")
 for((i=1;i<=20;i++))
 do
   for((j=0;j<3;j++))
